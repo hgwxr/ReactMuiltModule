@@ -32,17 +32,11 @@ class ContainerActivity : AppCompatActivity(), CoroutineScope by MainScope(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_content_rn)
-
-//        val inputStream = assets.open("plugin1.apk")
-//        File(filesDir.absolutePath, "plugin1.apk").writeBytes(inputStream.readBytes())
         val applicaiton1 = intent.getStringExtra(appName)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTaskDescription(TaskDescription(applicaiton1))
         }
         val methodName = intent.getStringExtra(mName)
-//        val applicaiton1 = "rnsample1"
-//        val applicaiton2 = "rnsample2"
-//        RnSample1
         applicaiton1?.let {
             val suffix = ".zip"
             runBlocking {
